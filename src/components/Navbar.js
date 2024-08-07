@@ -392,7 +392,7 @@ const Navbar = () => {
               }}
             >
               <Link
-                href="/hire-a-grant-writer"
+                href="/contact-us"
                 color="black"
                 underline="none"
                 sx={{

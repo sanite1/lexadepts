@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Divider,
-  Grid,
-  Link,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Divider, Grid, Link, TextField, Typography } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import { FaFacebookF } from "react-icons/fa";
@@ -312,7 +304,7 @@ const Footer = () => {
                   fontSize: "14px",
                   color: "white",
                   fontFamily: '"Source Sans Pro", sans-serif',
-                  marginLeft: "10px",
+                  marginLeft: { xs: "0", sm: "12px" },
                 }}
               >
                 No. 13, Parakou Street, Wuse 2, Abuja-FCT
@@ -329,7 +321,7 @@ const Footer = () => {
                   fontSize: "14px",
                   color: "white",
                   fontFamily: '"Source Sans Pro", sans-serif',
-                  marginLeft: "10px",
+                  marginLeft: { xs: "0", sm: "12px" },
                 }}
               >
                 Talk with us: +234 810 702 0108

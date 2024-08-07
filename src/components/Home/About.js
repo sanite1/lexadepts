@@ -23,111 +23,121 @@ const About = () => {
               display: "flex",
               alignItems: "center",
               height: "100%",
-              flexWrap: { xs: "wrap", md: "nowrap" },
+              flexWrap: { xs: "wrap" },
             }}
           >
-            <Typography
-              sx={{
-                display: "flex",
-                justifyContent: "end",
-                alignItems: "end",
-                fontSize: "16px",
-                fontFamily: '"Source Sans Pro", sans-serif',
-                fontWeight: 400,
-                borderBottom: "5px solid #E0A422",
-                width: "fit-content",
-                transform: { xs: "", md: "rotate(270deg)" },
-                transformOrigin: "center bottom",
-              }}
-            >
-              ABOUT US
-            </Typography>
-            <Box sx={{}}>
+            <Box>
               <Typography
                 sx={{
-                  fontSize: "32px",
-                  fontFamily: '"Source Sans Pro", sans-serif',
-                  fontWeight: 700,
-                  marginBottom: "20px",
-                  width: { xs: "100%", md: "70%" },
-                }}
-              >
-                This is what makes us who we are
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "14px",
+                  display: "flex",
+                  justifyContent: "end",
+                  alignItems: "end",
+                  fontSize: "16px",
                   fontFamily: '"Source Sans Pro", sans-serif',
                   fontWeight: 400,
-                  marginBottom: "20px",
+                  borderBottom: "5px solid #E0A422",
+                  width: "fit-content",
+                  transform: { xs: "" },
+                  // transformOrigin: "center bottom",
                 }}
               >
-                At Lex Adepts, we believe that everyone deserves access to
-                exceptional legal representation. Our team of dedicated and
-                compassionate lawyers committed to providing innovative
-                solutions, personalised service, and tireless advocacy to
-                individuals and businesses in need. With a drive for excellence
-                and passion for justice, we strive to make a positive impact in
-                our community and beyond.
+                ABOUT US
               </Typography>
-
-              <Box>
-                <Box
+              <Box sx={{}}>
+                <Typography
                   sx={{
-                    width: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    marginBottom: "6px",
-                    zIndex: 0,
+                    fontSize: "32px",
+                    fontFamily: '"Source Sans Pro", sans-serif',
+                    fontWeight: 700,
+                    marginBottom: "20px",
+                    width: { xs: "100%", md: "70%" },
                   }}
                 >
-                  <CheckCircleIcon fontSize="small" sx={{ color: "#E0A422" }} />
-                  <Typography
-                    sx={{
-                      fontSize: "14px",
-                      marginLeft: "15px",
-                    }}
-                  >
-                    Innovative Legal Solutions
-                  </Typography>
-                </Box>
-                <Box
+                  This is what makes us who we are
+                </Typography>
+                <Typography
                   sx={{
-                    width: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    marginBottom: "6px",
-                    zIndex: 0,
+                    fontSize: "14px",
+                    fontFamily: '"Source Sans Pro", sans-serif',
+                    fontWeight: 400,
+                    marginBottom: "20px",
                   }}
                 >
-                  <CheckCircleIcon fontSize="small" sx={{ color: "#E0A422" }} />
-                  <Typography
+                  At Lex Adepts, we believe that everyone deserves access to
+                  exceptional legal representation. Our team of dedicated and
+                  compassionate lawyers committed to providing innovative
+                  solutions, personalised service, and tireless advocacy to
+                  individuals and businesses in need. With a drive for
+                  excellence and passion for justice, we strive to make a
+                  positive impact in our community and beyond.
+                </Typography>
+                <Box>
+                  <Box
                     sx={{
-                      fontSize: "14px",
-                      marginLeft: "15px",
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      marginBottom: "6px",
+                      zIndex: 0,
                     }}
                   >
-                    Personalized Client Service
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{
-                    width: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    marginBottom: "6px",
-                    zIndex: 0,
-                  }}
-                >
-                  <CheckCircleIcon fontSize="small" sx={{ color: "#E0A422" }} />
-                  <Typography
+                    <CheckCircleIcon
+                      fontSize="small"
+                      sx={{ color: "#E0A422" }}
+                    />
+                    <Typography
+                      sx={{
+                        fontSize: "14px",
+                        marginLeft: "15px",
+                      }}
+                    >
+                      Innovative Legal Solutions
+                    </Typography>
+                  </Box>
+                  <Box
                     sx={{
-                      fontSize: "14px",
-                      marginLeft: "15px",
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      marginBottom: "6px",
+                      zIndex: 0,
                     }}
                   >
-                    Commitment to Justice and Community
-                  </Typography>
+                    <CheckCircleIcon
+                      fontSize="small"
+                      sx={{ color: "#E0A422" }}
+                    />
+                    <Typography
+                      sx={{
+                        fontSize: "14px",
+                        marginLeft: "15px",
+                      }}
+                    >
+                      Personalized Client Service
+                    </Typography>
+                  </Box>
+                  <Box
+                    sx={{
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      marginBottom: "6px",
+                      zIndex: 0,
+                    }}
+                  >
+                    <CheckCircleIcon
+                      fontSize="small"
+                      sx={{ color: "#E0A422" }}
+                    />
+                    <Typography
+                      sx={{
+                        fontSize: "14px",
+                        marginLeft: "15px",
+                      }}
+                    >
+                      Commitment to Justice and Community
+                    </Typography>
+                  </Box>
                 </Box>
               </Box>
             </Box>
