@@ -73,7 +73,7 @@ const Experience = () => {
                     width: { xs: "100%", md: "70%" },
                   }}
                 >
-                  Advocate. Inspire. Consistency.
+                  Advocate Passionately, inspire consistently.
                 </Typography>
                 <Typography
                   sx={{
@@ -147,7 +147,7 @@ const Experience = () => {
                             fontWeight: 700,
                           }}
                         >
-                          Muhammed
+                          Muhammad
                         </Typography>
                         <Typography
                           sx={{

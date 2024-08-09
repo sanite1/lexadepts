@@ -16,7 +16,7 @@ const teamMembers = [
   {
     id: "muhammad",
     name: "MUHAMMAD DAHIRU ILIYASU",
-    role: "Lawyer",
+    role: "Counsel",
     image: muhammad2,
     cardImage: muhammad,
     expertise: [
@@ -33,7 +33,7 @@ const teamMembers = [
   {
     id: "hasim",
     name: "ABDUL-JABBAR HASIM KOLO",
-    role: "Lawyer",
+    role: "Counsel",
     image: hasim2,
     cardImage: hasim,
     expertise: [
@@ -50,7 +50,7 @@ const teamMembers = [
   {
     id: "fatima",
     name: "FATIMAH JAAFAR ABDULLAHI",
-    role: "Lawyer",
+    role: "Counsel",
     image: fatima2,
     cardImage: fatima,
     expertise: [
@@ -66,7 +66,7 @@ const teamMembers = [
   {
     id: "hauwa",
     name: "HAUWA UMMI UMAR",
-    role: "Lawyer",
+    role: "Counsel",
     image: hauwa2,
     cardImage: hauwa,
     expertise: ["Dispute Resolution ", "Corporate/Commercial Law"],
@@ -76,22 +76,9 @@ const teamMembers = [
     ],
   },
   {
-    id: "arinze",
-    name: "ITANYI EUSEBIUS ARINZE",
-    role: "Lawyer",
-    image: arinze2,
-    cardImage: arinze,
-    expertise: ["Litigation", "Corporate Legal Advisory & Support"],
-    bio: [
-      "Itanyi Eusebius Arinze is a proactive value-driven legal practitioner. He earned his LLB at Enugu State University of Science and Technology, and obtained BL at the Nigerian Law  School, Bwari Campus, Abuja. ",
-      "He is a member of the Nigerian Bar Association, Legal Aid Council of Nigeria, a Chattered  Secretary and also a certified CMD trainer haven undergone the BASIC AND ADVANCED  MANDEV training with the Centre for Management Development. Arinze has a vast knowledge in corporate law practice and general litigation with a kin  specialty in corporate law practice. ",
-      "He had his pupilage at the renowned law firm of Azinge & Azinge Law Firm under the  mentorship of Prof. Epiphany Azinge (SAN) and Dr. Mrs. Valeria Azinge (SAN).",
-    ],
-  },
-  {
     id: "buhari",
     name: "BUHARI SALISU",
-    role: "Lawyer",
+    role: "Counsel",
     image: buhari2,
     cardImage: buhari,
     expertise: [

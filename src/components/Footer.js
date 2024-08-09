@@ -358,7 +358,7 @@ const Footer = () => {
                   color: "white",
                 }}
               >
-                Do you have Any case?
+                Leave us a message
               </Typography>
               <Controller
                 name="name"
