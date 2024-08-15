@@ -1,7 +1,5 @@
-import { Box, Button, Grid, Link, Typography } from "@mui/material";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import MissionImg from "../../assets/images/missionImg.png";
-import SmallMuhammad from "../../assets/images/smallMuhammad.png";
+import { Box, Grid, Typography } from "@mui/material";
+import MissionImg from "../../assets/images/missionImg2.png";
 
 const Mission = () => {
   return (

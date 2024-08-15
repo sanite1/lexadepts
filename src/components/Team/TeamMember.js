@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Box, Typography, Link, Grid } from "@mui/material";
 import teamMembers from "../../data/teamMembers";
 import Navbar from "../Navbar";
-import TeamIntro from "../../assets/images/staffDetailIntro.png";
+import TeamIntro from "../../assets/images/staffDetailIntro2.png";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Footer from "../Footer";
@@ -111,16 +111,6 @@ const TeamMember = () => {
               }}
             >
               {member.name}
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "16px",
-                fontFamily: '"Source Sans Pro", sans-serif',
-                fontWeight: 600,
-                color: "#E0A422",
-              }}
-            >
-              {member.role}
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>

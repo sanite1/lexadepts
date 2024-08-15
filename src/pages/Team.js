@@ -1,11 +1,11 @@
-import { Box, Button, Grid, Link, Typography } from "@mui/material";
+import { Box, Grid, Link, Typography } from "@mui/material";
 import Navbar from "../components/Navbar";
-import TeamIntro from "../assets/images/TeamIntro.png";
+import TeamIntro from "../assets/images/TeamIntro2.png";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import TeamCards from "../components/Team/TeamCards";
 import Footer from "../components/Footer";
-import MissionImg from "../assets/images/missionImg.png";
+import MissionImg from "../assets/images/missionImg2.png";
 import { useEffect } from "react";
 import { useTheme } from "@mui/material/styles";
 
@@ -25,8 +25,6 @@ const Team = () => {
   return (
     <Box>
       <Navbar />
-      {/* Spacer to ensure content below the fixed navbar is visible */}
-      {/* <Box sx={{ height: "15vh" }}></Box> */}
       <Box
         sx={{
           backgroundImage: `url(${TeamIntro})`,

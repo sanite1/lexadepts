@@ -1,23 +1,12 @@
-import { Box, Button, Grid, Link, Typography } from "@mui/material";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ExperienceImg from "../../assets/images/experienceImg.png";
-import AboutImg from "../../assets/images/aboutSecImg.png";
+import { Box, Grid, Typography } from "@mui/material";
+import AboutImg from "../../assets/images/aboutSecImg2.png";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const About = () => {
   return (
     <Box>
       <Grid container spacing={4}>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={
-            {
-              // order: { xs: 1, md: 2 },
-            }
-          }
-        >
+        <Grid item xs={12} md={6}>
           <Box
             sx={{
               display: "flex",
@@ -38,7 +27,6 @@ const About = () => {
                   borderBottom: "5px solid #E0A422",
                   width: "fit-content",
                   transform: { xs: "" },
-                  // transformOrigin: "center bottom",
                 }}
               >
                 ABOUT US
@@ -143,16 +131,7 @@ const About = () => {
             </Box>
           </Box>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={
-            {
-              // order: { xs: 2, md: 1 },
-            }
-          }
-        >
+        <Grid item xs={12} md={6}>
           <Box
             sx={{
               display: "flex",
@@ -161,7 +140,7 @@ const About = () => {
               height: "100%",
             }}
           >
-            <img src={AboutImg} alt={"experience"} style={{ width: "100%" }} />
+            <img src={AboutImg} alt={"About"} style={{ width: "100%" }} />
           </Box>
         </Grid>
       </Grid>

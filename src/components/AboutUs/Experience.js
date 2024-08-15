@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Link, Typography } from "@mui/material";
+import { Box, Grid, Link, Typography } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ExperienceImg from "../../assets/images/experienceImg.png";
 import SmallMuhammad from "../../assets/images/smallMuhammad.png";
@@ -73,7 +73,7 @@ const Experience = () => {
                     width: { xs: "100%", md: "70%" },
                   }}
                 >
-                  Advocate Passionately, inspire consistently.
+                  Advocate Passionately, Inspire Consistently.
                 </Typography>
                 <Typography
                   sx={{
@@ -110,7 +110,6 @@ const Experience = () => {
                       borderRadius: "10px",
                       padding: "10px 24px",
                       marginRight: "20px",
-                      fontFamily: "sans-serif",
                       letterSpacing: "1px",
                       fontSize: "14px",
                       fontFamily: '"Source Sans Pro", sans-serif',

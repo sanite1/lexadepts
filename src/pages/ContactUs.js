@@ -1,19 +1,11 @@
-import { Box, Button, Grid, Link, Typography } from "@mui/material";
+import { Box, Grid, Link, Typography } from "@mui/material";
 import Navbar from "../components/Navbar";
 import ContactIntro from "../assets/images/contactIntro.png";
-import Map from "../assets/images/map.png";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import TeamCards from "../components/Team/TeamCards";
 import Footer from "../components/Footer";
-import PracticeAreaCards from "../components/PracticeAreas/PracticeAreaCards";
-import Experience from "../components/AboutUs/Experience";
-import Values from "../components/AboutUs/Values";
-import Mission from "../components/AboutUs/Mission";
 import { useEffect } from "react";
 import { useTheme } from "@mui/material/styles";
-
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CallIcon from "@mui/icons-material/Call";
 import EmailIcon from "@mui/icons-material/Email";
 
@@ -261,6 +253,7 @@ const ContactUs = () => {
                     height="450"
                     allowfullscreen=""
                     loading="lazy"
+                    title="Google Maps Location of Our Office"
                     style={{ border: 0, width: "100%" }}
                     referrerpolicy="no-referrer-when-downgrade"
                   ></iframe>

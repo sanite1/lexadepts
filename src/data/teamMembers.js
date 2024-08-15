@@ -1,12 +1,9 @@
-// src/data/teamMembers.js
-import arinze from "../assets/images/arinze.png";
 import hauwa from "../assets/images/hauwa.png";
 import muhammad from "../assets/images/muhammad.png";
 import fatima from "../assets/images/fatima.png";
 import hasim from "../assets/images/hasim.png";
-import buhari from "../assets/images/buhari.png";
+import buhari from "../assets/images/buhari0.png";
 import buhari2 from "../assets/images/buhari2.png";
-import arinze2 from "../assets/images/arinze2.png";
 import hauwa2 from "../assets/images/hauwa2.png";
 import muhammad2 from "../assets/images/muhammad2.png";
 import fatima2 from "../assets/images/fatima2.png";
@@ -25,9 +22,9 @@ const teamMembers = [
       "Real Estate Law",
     ],
     bio: [
-      "Muhammad D. Iliyasu is a hardworking, dedicated and an ambitious professional committed to achieving excellence in areas of Corporate & Commercial law, Finance & Policy Law, Real estate – Property Law and other areas of legal practice.",
-      "He earned his bachelor’s degree in law from Bayero University Kano, BL at the Nigerian Law School, Bwari, Abuja and master's degree in financial and policy law from the Nile University of Nigeria respectively.",
-      "Muhammad has obtained several certifications and has vast experience in both public  and private fields, he explored his intellectual prowess being among the team that  reviewed the Infectious Disease Bill, 2020 in collaboration with the Federal Ministry of  Justice, the Senate Committee on Primary Health Care and Communicable Diseases with  support from European Union (EU) and Rule of Law and Anti-Corruption (RoLac). He  advised and executed several transactions in both Corporate, Commercial and Real Estate  for and on behalf of both national and international individuals and corporations.",
+      "Muhammad D. Iliyasu is a hardworking, dedicated and an ambitious professional committed to achieving excellence in areas of Corporate & Commercial law, Financial Law and Policy, Real estate – Property Law and other areas of legal practice.",
+      "He earned his Bachelor’s degree in Law (LLB) from Bayero University Kano, BL at the Nigerian Law School, Bwari, Abuja and Master's degree in Financial Law and Policy from the Nile University of Nigeria respectively.",
+      "Muhammad has obtained several certifications and has vast experience in both public  and private fields, he explored his intellectual prowess being among the team that  reviewed the Infectious Disease Bill, 2020 in collaboration with the Federal Ministry of  Justice, the Senate Committee on Primary Health Care and Communicable Diseases with  support from European Union (EU) and Rule of Law and Anti-Corruption (RoLac). He advised and executed several transactions in both Corporate, Commercial and Real Estate  for and on behalf of both national and international individuals and corporations.",
     ],
   },
   {

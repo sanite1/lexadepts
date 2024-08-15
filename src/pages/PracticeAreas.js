@@ -1,9 +1,8 @@
-import { Box, Button, Grid, Link, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import Navbar from "../components/Navbar";
-import PracticeAreaImage from "../assets/images/practiceAreaIntro.png";
+import PracticeAreaImage from "../assets/images/practiceAreaIntro2.png";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import TeamCards from "../components/Team/TeamCards";
 import Footer from "../components/Footer";
 import { useEffect } from "react";
 import { useTheme } from "@mui/material/styles";

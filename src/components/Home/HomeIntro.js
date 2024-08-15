@@ -1,11 +1,10 @@
 import React from "react";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Box, Typography, Link } from "@mui/material";
 import { useInView } from "react-intersection-observer";
 import { keyframes } from "@emotion/react";
-import homeIntro from "../../assets/images/homeIntro.png";
+import homeIntro from "../../assets/images/homeIntro9.jpg";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import { useTheme } from "@mui/material/styles";
@@ -45,17 +44,6 @@ const AnimatedBox = ({ children, direction }) => {
 };
 
 function HomeIntro() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: false,
-    arrows: false,
-  };
   const theme = useTheme();
 
   return (
@@ -76,13 +64,13 @@ function HomeIntro() {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
+          backgroundColor: "rgba(19, 26, 52, 0.5)",
           width: "100%",
           height: "100%",
         }}
       >
         <AnimatedBox direction="down">
           <Typography
-            // variant={{ xs: "h4", md: "h3" }}
             sx={{
               fontSize: {
                 xs: theme.typography.h4.fontSize,
@@ -120,7 +108,7 @@ function HomeIntro() {
           </Typography>
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Link
-              href="/hire-a-grant-writer"
+              href="/contact-us"
               color="inherit"
               underline="none"
               sx={{
@@ -130,7 +118,6 @@ function HomeIntro() {
                 outline: "none",
                 borderRadius: "10px",
                 padding: "10px 24px",
-                fontFamily: "sans-serif",
                 letterSpacing: "1px",
                 fontSize: "14px",
                 fontFamily: '"Source Sans Pro", sans-serif',

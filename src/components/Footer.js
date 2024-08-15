@@ -1,25 +1,15 @@
 import { Box, Divider, Grid, Link, TextField, Typography } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import XIcon from "@mui/icons-material/X";
-import { FaFacebookF } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import { FaWhatsapp } from "react-icons/fa";
-
-import LoadingButton from "@mui/lab/LoadingButton/LoadingButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import StarIcon from "@mui/icons-material/Star";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CallIcon from "@mui/icons-material/Call";
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/logoMod.png";
 import footerField from "../assets/images/footerField.png";
 import { useState } from "react";
 
-import SendIcon from "@mui/icons-material/Send";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -32,12 +22,10 @@ const Footer = () => {
       fontSize: "14px",
       padding: "5px",
       marginTop: "20px",
-      // Bottom border
       "&:before": {
         borderColor: "#fff",
         borderWidth: "1px",
       },
-      // Border on focus
       "&:after": {
         borderColor: "#fff",
         borderWidth: "1px",
@@ -64,14 +52,9 @@ const Footer = () => {
     details: yup.string().required("Message Is required"),
   });
 
-  const { handleSubmit, trigger, control } = useForm({
+  const { trigger, control } = useForm({
     resolver: yupResolver(schema),
   });
-  const [loading, setLoading] = useState(false);
-
-  const handleLoadClick = async (data) => {
-    setLoading(true);
-  };
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -115,13 +98,13 @@ const Footer = () => {
                     fontFamily: '"Source Sans Pro", sans-serif',
                     letterSpacing: "1px",
                     color: "white",
-                    fontSize: "16px",
+                    fontSize: "14px",
                   }}
                 >
                   At Lex Adepts, our team of experienced lawyers provides expert
                   guidance and representation across range of areas, and we
                   pride ourselves on our sector strengths which cover diverse
-                  areas of law including
+                  areas of law.
                 </Typography>
                 <Box display={"flex"}>
                   <Link
@@ -136,61 +119,14 @@ const Footer = () => {
                       background: "#E0A422",
                       borderRadius: "15%",
                       color: "#000",
-                      // marginRight: { xs: "16px", sm: "16px" },
                     }}
                   >
                     <InstagramIcon />
                   </Link>
-                  {/* <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      width: "30px",
-                      height: "30px",
-                      background: "#E0A422",
-                      borderRadius: "15%",
-                      marginLeft: "16px",
-                    }}
-                  >
-                    <XIcon fontSize="20px" />
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      width: "30px",
-                      height: "30px",
-                      background: "#E0A422",
-                      borderRadius: "15%",
-                      marginLeft: "16px",
-                    }}
-                  >
-                    <FaLinkedinIn />
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      width: "30px",
-                      height: "30px",
-                      background: "#E0A422",
-                      borderRadius: "15%",
-                      marginLeft: "16px",
-                    }}
-                  >
-                    <FaFacebookF />
-                  </Box> */}
                 </Box>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <Box
-                // display={"flex"}
-                // justifyContent={{ xs: "start", sm: "center" }}
-                // flexWrap={"wrap"}
-                >
+                <Box>
                   <Box>
                     <Typography
                       variant="body1"
@@ -221,7 +157,7 @@ const Footer = () => {
                         </ListItemIcon>
                         <Typography
                           sx={{
-                            fontSize: "16px",
+                            fontSize: "14px",
                             fontFamily: '"Source Sans Pro", sans-serif',
                             marginLeft: "-25px",
                             color: "white",
@@ -239,7 +175,7 @@ const Footer = () => {
                         </ListItemIcon>
                         <Typography
                           sx={{
-                            fontSize: "16px",
+                            fontSize: "14px",
                             marginLeft: "-25px",
                             fontFamily: '"Source Sans Pro", sans-serif',
                             color: "white",
@@ -257,7 +193,7 @@ const Footer = () => {
                         </ListItemIcon>
                         <Typography
                           sx={{
-                            fontSize: "16px",
+                            fontSize: "14px",
                             marginLeft: "-25px",
                             color: "white",
                             fontFamily: '"Source Sans Pro", sans-serif',
@@ -275,13 +211,31 @@ const Footer = () => {
                         </ListItemIcon>
                         <Typography
                           sx={{
-                            fontSize: "16px",
+                            fontSize: "14px",
                             marginLeft: "-25px",
                             fontFamily: '"Source Sans Pro", sans-serif',
                             color: "white",
                           }}
                         >
                           Real Estate – Property Law
+                        </Typography>
+                      </ListItem>
+                      <ListItem disablePadding>
+                        <ListItemIcon>
+                          <StarIcon
+                            fontSize="small"
+                            sx={{ color: "#E0A422" }}
+                          />
+                        </ListItemIcon>
+                        <Typography
+                          sx={{
+                            fontSize: "14px",
+                            marginLeft: "-25px",
+                            fontFamily: '"Source Sans Pro", sans-serif',
+                            color: "white",
+                          }}
+                        >
+                          Intellectual Property Law
                         </Typography>
                       </ListItem>
                     </List>
@@ -424,7 +378,7 @@ const Footer = () => {
                     variant="standard"
                     multiline
                     minRows={4}
-                    placeholder="Write details of your case here"
+                    placeholder="Write your message here"
                     size="small"
                     fullWidth
                     {...fields}
@@ -439,17 +393,7 @@ const Footer = () => {
                 )}
               />
               <Box>
-                <Typography
-                  sx={
-                    {
-                      // background: "#E0A422",
-                      // outline: "none",
-                      // borderRadius: "5px",
-                      // padding: "5px 12px",
-                    }
-                  }
-                  variant="body2"
-                >
+                <Typography variant="body2">
                   <Link
                     onClick={onSubmit}
                     style={{
@@ -463,11 +407,9 @@ const Footer = () => {
                       borderRadius: "10px",
                       padding: "10px 24px",
                       marginRight: "20px",
-                      fontFamily: "sans-serif",
                       letterSpacing: "1px",
                       fontSize: "14px",
                       fontFamily: '"Source Sans Pro", sans-serif',
-                      fontWeight: 300,
                       textDecoration: "none",
                       fontWeight: "600",
                       cursor: "pointer",

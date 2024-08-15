@@ -1,15 +1,7 @@
 import React from "react";
 import Lottie from "lottie-react";
 import loaderAnimation from "../assets/loader.json";
-import {
-  Box,
-  Button,
-  Divider,
-  Grid,
-  Link,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box } from "@mui/material";
 const Loader = () => {
   return (
     <Box

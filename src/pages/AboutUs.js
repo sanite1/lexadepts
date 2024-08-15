@@ -1,11 +1,10 @@
-import { Box, Button, Grid, Link, Divider, Typography } from "@mui/material";
+import { Box, Link, Divider, Typography } from "@mui/material";
 import Navbar from "../components/Navbar";
-import AboutUsIntro from "../assets/images/aboutUsIntro.png";
+import AboutUsIntro from "../assets/images/aboutUsIntro2.png";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import TeamCards from "../components/Team/TeamCards";
 import Footer from "../components/Footer";
-import PracticeAreaCards from "../components/PracticeAreas/PracticeAreaCards";
 import Experience from "../components/AboutUs/Experience";
 import Values from "../components/AboutUs/Values";
 import Mission from "../components/AboutUs/Mission";
@@ -102,7 +101,7 @@ const AboutUs = () => {
 
       <Box
         sx={{
-          width: "100%",
+          width: { xs: "100%", md: "80%" },
           margin: "50px auto",
         }}
       >
@@ -148,7 +147,6 @@ const AboutUs = () => {
               outline: "none",
               borderRadius: "10px",
               padding: "10px 24px",
-              fontFamily: "sans-serif",
               letterSpacing: "1px",
               fontSize: "14px",
               fontFamily: '"Source Sans Pro", sans-serif',
@@ -158,7 +156,7 @@ const AboutUs = () => {
             Learn More <ArrowForwardIosIcon fontSize="smal" marginLeft="10px" />
           </Link>
         </Box>
-        <Divider />
+        <Divider sx={{ width: "80%", margin: "auto" }} />
       </Box>
       <Footer />
     </Box>

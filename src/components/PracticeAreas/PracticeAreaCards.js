@@ -1,13 +1,5 @@
-import {
-  Box,
-  ListItem,
-  Grid,
-  List,
-  Typography,
-  ListItemIcon,
-} from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import PracticeAreaData from "../../data/practiceAreas";
-import StarIcon from "@mui/icons-material/Star";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const PracticeAreaCards = () => {

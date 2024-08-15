@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Link, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import value1 from "../../assets/images/value1.png";
 import value2 from "../../assets/images/value2.png";
 import value3 from "../../assets/images/value3.png";

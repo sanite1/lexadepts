@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Link, Typography } from "@mui/material";
+import { Box, Grid, Link, Typography } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import smallPract1 from "../../assets/images/smallPract1.png";
 import smallPract2 from "../../assets/images/smallPract2.png";
@@ -8,7 +8,6 @@ import practIcon1 from "../../assets/images/practIcon1.png";
 import practIcon2 from "../../assets/images/practIcon2.png";
 import practIcon3 from "../../assets/images/practIcon3.png";
 import practIcon4 from "../../assets/images/practIcon4.png";
-import SmallMuhammad from "../../assets/images/smallMuhammad.png";
 
 const PracticeAreas = () => {
   return (
@@ -19,16 +18,7 @@ const PracticeAreas = () => {
       }}
     >
       <Grid container>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={
-            {
-              // order: { xs: 1, md: 2 },
-            }
-          }
-        >
+        <Grid item xs={12} md={6}>
           <Box
             sx={{
               display: "flex",
@@ -105,7 +95,6 @@ const PracticeAreas = () => {
                       borderRadius: "10px",
                       padding: "10px 24px",
                       marginRight: "20px",
-                      fontFamily: "sans-serif",
                       letterSpacing: "1px",
                       fontSize: "14px",
                       fontFamily: '"Source Sans Pro", sans-serif',
@@ -120,20 +109,10 @@ const PracticeAreas = () => {
             </Box>
           </Box>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={
-            {
-              // order: { xs: 2, md: 1 },
-            }
-          }
-        >
+        <Grid item xs={12} md={6}>
           <Box
             sx={{
               display: "flex",
-              //   alignItems: "center",
               flexWrap: "wrap",
               height: "100%",
               background: "#131A34",

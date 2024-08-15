@@ -1,11 +1,10 @@
 import React from "react";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Box, Typography, Link } from "@mui/material";
 import { useInView } from "react-intersection-observer";
 import { keyframes } from "@emotion/react";
-import priority from "../../assets/images/priority.png";
+import priority from "../../assets/images/priority2.png";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useTheme } from "@mui/material/styles";
 
@@ -44,17 +43,6 @@ const AnimatedBox = ({ children, direction }) => {
 };
 
 function Priority() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: false,
-    arrows: false,
-  };
   const theme = useTheme();
 
   return (
@@ -66,7 +54,6 @@ function Priority() {
         padding: "100px 0",
 
         margin: "auto",
-        zIndex: "0",
         backgroundImage: `url(${priority})`,
         backgroundSize: "cover", // Cover the entire box
         backgroundPosition: "center", // Center the image
@@ -135,7 +122,6 @@ function Priority() {
                 outline: "none",
                 borderRadius: "10px",
                 padding: "10px 24px",
-                fontFamily: "sans-serif",
                 letterSpacing: "1px",
                 fontSize: "14px",
                 fontFamily: '"Source Sans Pro", sans-serif',

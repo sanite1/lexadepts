@@ -1,8 +1,7 @@
-import { Box, Button, Grid, Link, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useInView } from "react-intersection-observer";
-import Carousel from "../components/Home/ClienteleCarousel";
 import { keyframes } from "@emotion/react";
 import HomeIntro from "../components/Home/HomeIntro";
 import Experience from "../components/AboutUs/Experience";
@@ -93,16 +92,12 @@ const Home = () => {
   return (
     <Box>
       <Navbar />
-      {/* Spacer to ensure content below the fixed navbar is visible */}
-      {/* <Box sx={{ height: "15vh" }}></Box> */}
-      {/* Introduction Text  */}
 
       <Box
         sx={{
           width: "100%",
           margin: "auto",
           height: "100vh",
-          // padding: { xs: "50px 0", md: "0" },
           boxSizing: "border-box",
           alignItems: "center",
           justifyContent: "center",
@@ -111,44 +106,52 @@ const Home = () => {
         <HomeIntro />
       </Box>
 
-      <Box
-        sx={{
-          width: { xs: "80%", md: "80%" },
-          boxSizing: "border-box",
-          margin: "auto",
-          marginTop: "50px",
-        }}
-      >
-        <Experience />
-      </Box>
+      <AnimatedBox direction={"left"}>
+        <Box
+          sx={{
+            width: { xs: "80%", md: "80%" },
+            boxSizing: "border-box",
+            margin: "auto",
+            marginTop: "50px",
+          }}
+        >
+          <Experience />
+        </Box>
+      </AnimatedBox>
 
-      <Box
-        sx={{
-          width: "80%",
-          margin: "auto",
-          marginTop: "50px",
-        }}
-      >
-        <About />
-      </Box>
+      <AnimatedBox direction={"right"}>
+        <Box
+          sx={{
+            width: "80%",
+            margin: "auto",
+            marginTop: "50px",
+          }}
+        >
+          <About />
+        </Box>
+      </AnimatedBox>
 
-      <Box
-        sx={{
-          marginTop: "50px",
-        }}
-      >
-        <PracticeAreas />
-      </Box>
+      <AnimatedBox direction={"appear"}>
+        <Box
+          sx={{
+            marginTop: "50px",
+          }}
+        >
+          <PracticeAreas />
+        </Box>
+      </AnimatedBox>
 
-      <Box
-        sx={{
-          // width: "80%",
-          margin: "auto",
-          marginTop: "50px",
-        }}
-      >
-        <Values />
-      </Box>
+      <AnimatedBox direction={"down"}>
+        <Box
+          sx={{
+            // width: "80%",
+            margin: "auto",
+            marginTop: "50px",
+          }}
+        >
+          <Values />
+        </Box>
+      </AnimatedBox>
 
       <Box
         sx={{

@@ -1,7 +1,8 @@
 import pract1 from "../assets/images/bigPract1.png";
 import pract2 from "../assets/images/bigPract2.png";
 import pract3 from "../assets/images/bigPract3.png";
-import pract4 from "../assets/images/bigPract4.png";
+import pract4 from "../assets/images/bigPract40.png";
+import pract5 from "../assets/images/bigPract50.png";
 
 const PracticeAreaData = [
   {
@@ -48,6 +49,20 @@ const PracticeAreaData = [
       "Property management",
       "Ensuring regulatory and permit compliance with pertinent laws and authorities",
       " Drafting and negotiating real estate contracts and other conveyance documents",
+    ],
+  },
+  {
+    id: 5,
+    md: 1,
+    xs: 2,
+    image: pract5,
+    name: "Intellectual Property Law",
+    desc: "At Lex Adepts, we recognize that your concepts, ideas, innovations, brand names, and brand  elements are valuable assets that require protection. We offer unparalleled expertise in  intellectual property (IP) advisory and portfolio management, serving both traditional and  contemporary businesses, including entertainment industries. Our services include advising on  patents, copyrights, trademarks, product development, licensing, and the acquisition and transfer  of technology. We ensure that creators and inventors can secure exclusive rights to their  creations, fostering innovation and creativity.  Key areas include;",
+    bulletPoints: [
+      "Patents - which protect new inventions",
+      "Trademarks - safeguarding brand identities",
+      "Copyrights - covering artistic and literary works",
+      "Trade secrets - which protect confidential business information",
     ],
   },
 ];

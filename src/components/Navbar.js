@@ -1,6 +1,5 @@
 import { Box, Grid, Link } from "@mui/material";
 import { useLocation } from "react-router-dom";
-import { Divider } from "@mui/material";
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -9,7 +8,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CallIcon from "@mui/icons-material/Call";
 import EmailIcon from "@mui/icons-material/Email";
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/logoMod.png";
 
 const Navbar = () => {
   const location = useLocation();
@@ -74,8 +73,6 @@ const Navbar = () => {
               position: "sticky",
               top: 0,
               width: "100%",
-              // background: "#131A34",
-              // padding: "10px 0",
               zIndex: 9998,
               padding: "0 5%",
               height: "7vh",
@@ -162,8 +159,6 @@ const Navbar = () => {
               borderBottomStyle: "solid",
               borderBottom: "1px",
               borderBottomColor: "black",
-              // background: "white",
-              // boxShadow: "0px 1px 10px rgba(0, 0, 0, 0.25)",
               zIndex: "9999",
             }}
           >
@@ -171,12 +166,12 @@ const Navbar = () => {
             <Box
               sx={{
                 position: "absolute",
-                height: "100vh",
-                width: "100%",
-                background: "#333333",
+                height: "70vh",
+                width: "100vw",
+                background: "#131A34",
                 zIndex: "9999",
                 display: sideBar ? "block" : "none",
-                padding: "5%",
+                padding: "10%",
                 boxSizing: "border-box",
               }}
             >
@@ -186,7 +181,7 @@ const Navbar = () => {
                   marginBottom: "50px",
                 }}
               >
-                <img style={{}} src={Logo} alt="Logo" />
+                <img style={{ width: "200px" }} src={Logo} alt="Logo" />
                 <Box
                   sx={{ float: "right" }}
                   onClick={() => setSideBar(!sideBar)}
@@ -196,17 +191,21 @@ const Navbar = () => {
               </Box>
               <Box
                 sx={{
-                  // display: { xs: "flex", md: "flex" },
-                  justifyContent: "space-around",
-                  alignItems: "center",
-                  minWidth: "50%",
+                  display: { xs: "flex", md: "flex" },
+                  // justifyContent: "space-around",
+                  // alignItems: "center",
+                  flexWrap: "wrap",
                   margin: "auto",
-                  height: "80%",
                 }}
               >
                 <Typography
-                  variant="h4"
-                  sx={{ textAlign: "center", marginBottom: "40px" }}
+                  variant="body"
+                  sx={{
+                    color: "#fff",
+                    marginBottom: "20px",
+                    fontFamily: '"Source Sans Pro", sans-serif',
+                    width: "100%",
+                  }}
                 >
                   <Link
                     href="/"
@@ -216,8 +215,13 @@ const Navbar = () => {
                   </Link>
                 </Typography>
                 <Typography
-                  variant="h4"
-                  sx={{ textAlign: "center", marginBottom: "40px" }}
+                  variant="body"
+                  sx={{
+                    color: "#fff",
+                    marginBottom: "20px",
+                    fontFamily: '"Source Sans Pro", sans-serif',
+                    width: "100%",
+                  }}
                 >
                   <Link
                     href="/practice-areas"
@@ -231,8 +235,13 @@ const Navbar = () => {
                   </Link>
                 </Typography>
                 <Typography
-                  variant="h4"
-                  sx={{ textAlign: "center", marginBottom: "40px" }}
+                  variant="body"
+                  sx={{
+                    color: "#fff",
+                    marginBottom: "20px",
+                    fontFamily: '"Source Sans Pro", sans-serif',
+                    width: "100%",
+                  }}
                 >
                   <Link
                     href="/about-us"
@@ -244,8 +253,13 @@ const Navbar = () => {
                   </Link>
                 </Typography>
                 <Typography
-                  variant="h4"
-                  sx={{ textAlign: "center", marginBottom: "40px" }}
+                  variant="body"
+                  sx={{
+                    color: "#fff",
+                    marginBottom: "20px",
+                    fontFamily: '"Source Sans Pro", sans-serif',
+                    width: "100%",
+                  }}
                 >
                   <Link
                     href="/contact-us"
@@ -269,7 +283,6 @@ const Navbar = () => {
                     outline: "none",
                     borderRadius: "10px",
                     padding: "10px 24px",
-                    fontFamily: "sans-serif",
                     letterSpacing: "1px",
                     fontSize: "14px",
                     fontFamily: '"Source Sans Pro", sans-serif',
@@ -292,15 +305,9 @@ const Navbar = () => {
               }}
             >
               <img
-                style={
-                  {
-                    // width: "100px",
-                    // height: "100px",
-                    //   objectFit: "cover",
-                    // borderRadius: "10%",
-                    // marginBottom: "10px",
-                  }
-                }
+                style={{
+                  width: "200px",
+                }}
                 src={Logo}
                 alt="Logo"
               />
@@ -403,7 +410,6 @@ const Navbar = () => {
                   borderRadius: "10px",
                   padding: "10px 24px",
                   marginRight: "20px",
-                  fontFamily: "sans-serif",
                   letterSpacing: "1px",
                   fontSize: "14px",
                   fontFamily: '"Source Sans Pro", sans-serif',
@@ -418,11 +424,24 @@ const Navbar = () => {
               onClick={() => setSideBar(!sideBar)}
               sx={{
                 display: { md: "none", xs: "flex" },
-                justifyContent: "end",
+                justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              <MenuIcon />
+              <Box
+                onClick={() => setSideBar(!sideBar)}
+                sx={{
+                  display: { md: "none", xs: "flex" },
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "35px",
+                  width: "35px",
+                  background: "#E0A422",
+                  borderRadius: "5px",
+                }}
+              >
+                <MenuIcon />
+              </Box>
             </Box>
           </Box>
         </Box>

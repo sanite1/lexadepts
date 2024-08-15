@@ -1,7 +1,5 @@
-// src/components/TeamCards.js
 import React from "react";
 import { Box, Grid, Typography, Link } from "@mui/material";
-// import {  } from "react-router-dom";
 import teamMembers from "../../data/teamMembers";
 
 const TeamCards = () => {
@@ -60,17 +58,6 @@ const TeamCards = () => {
               }}
             >
               {member.name}
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "16px",
-                fontFamily: '"Source Sans Pro", sans-serif',
-                fontWeight: 300,
-                textDecoration: "none",
-                color: "#E0A422",
-              }}
-            >
-              {member.role}
             </Typography>
           </Grid>
         ))}
