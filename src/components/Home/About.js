@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import AboutImg from "../../assets/images/aboutSecImg2.png";
+import AboutImg from "../../assets/images/about0.jpg";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const About = () => {

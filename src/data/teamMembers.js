@@ -13,7 +13,7 @@ const teamMembers = [
   {
     id: "muhammad",
     name: "MUHAMMAD DAHIRU ILIYASU",
-    role: "Counsel",
+    role: "Managing Partner",
     image: muhammad2,
     cardImage: muhammad,
     expertise: [
@@ -30,7 +30,7 @@ const teamMembers = [
   {
     id: "hasim",
     name: "ABDUL-JABBAR HASIM KOLO",
-    role: "Counsel",
+    role: "Partner",
     image: hasim2,
     cardImage: hasim,
     expertise: [
@@ -47,7 +47,7 @@ const teamMembers = [
   {
     id: "fatima",
     name: "FATIMAH JAAFAR ABDULLAHI",
-    role: "Counsel",
+    role: "Partner",
     image: fatima2,
     cardImage: fatima,
     expertise: [
@@ -63,7 +63,7 @@ const teamMembers = [
   {
     id: "hauwa",
     name: "HAUWA UMMI UMAR",
-    role: "Counsel",
+    role: "Senior Associate",
     image: hauwa2,
     cardImage: hauwa,
     expertise: ["Dispute Resolution ", "Corporate/Commercial Law"],
@@ -75,7 +75,7 @@ const teamMembers = [
   {
     id: "buhari",
     name: "BUHARI SALISU",
-    role: "Counsel",
+    role: "Senior Associate",
     image: buhari2,
     cardImage: buhari,
     expertise: [

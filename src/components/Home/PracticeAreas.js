@@ -1,9 +1,9 @@
 import { Box, Grid, Link, Typography } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import smallPract1 from "../../assets/images/smallPract1.png";
+import smallPract1 from "../../assets/images/corp-com.jpg";
 import smallPract2 from "../../assets/images/smallPract2.png";
-import smallPract3 from "../../assets/images/smallPract3.png";
-import smallPract4 from "../../assets/images/smallPract4.png";
+import smallPract3 from "../../assets/images/risk.jpg";
+import smallPract4 from "../../assets/images/bigPract40.png";
 import practIcon1 from "../../assets/images/practIcon1.png";
 import practIcon2 from "../../assets/images/practIcon2.png";
 import practIcon3 from "../../assets/images/practIcon3.png";
@@ -135,27 +135,39 @@ const PracticeAreas = () => {
                     borderRadius: "10px",
                   }}
                 >
-                  <Box>
-                    <Box display={"flex"} justifyContent={"center"}>
-                      <img
-                        src={practIcon1}
-                        alt={"icon"}
-                        style={{ display: "flex", justifyContent: "center" }}
-                      />
+                  <Box
+                    sx={{
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      height: "250px",
+                      backgroundColor: "rgba(19, 26, 52, 0.5)",
+                      margin: "auto",
+                    }}
+                  >
+                    <Box>
+                      <Box display={"flex"} justifyContent={"center"}>
+                        <img
+                          src={practIcon1}
+                          alt={"icon"}
+                          style={{ display: "flex", justifyContent: "center" }}
+                        />
+                      </Box>
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: '"Source Sans Pro", sans-serif',
+                          fontWeight: 400,
+                          color: "#fff",
+                          width: { xs: "80%" },
+                          textAlign: "center",
+                          margin: "auto",
+                        }}
+                      >
+                        Corporate and Commercial Law
+                      </Typography>
                     </Box>
-                    <Typography
-                      sx={{
-                        fontSize: "16px",
-                        fontFamily: '"Source Sans Pro", sans-serif',
-                        fontWeight: 400,
-                        color: "#fff",
-                        width: { xs: "80%" },
-                        textAlign: "center",
-                        margin: "auto",
-                      }}
-                    >
-                      Corporate and Commercial Law
-                    </Typography>
                   </Box>
                 </Box>
               </Grid>
@@ -213,27 +225,39 @@ const PracticeAreas = () => {
                     borderRadius: "10px",
                   }}
                 >
-                  <Box>
-                    <Box display={"flex"} justifyContent={"center"}>
-                      <img
-                        src={practIcon3}
-                        alt={"icon"}
-                        style={{ display: "flex", justifyContent: "center" }}
-                      />
+                  <Box
+                    sx={{
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      height: "250px",
+                      backgroundColor: "rgba(19, 26, 52, 0.5)",
+                      margin: "auto",
+                    }}
+                  >
+                    <Box>
+                      <Box display={"flex"} justifyContent={"center"}>
+                        <img
+                          src={practIcon3}
+                          alt={"icon"}
+                          style={{ display: "flex", justifyContent: "center" }}
+                        />
+                      </Box>
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: '"Source Sans Pro", sans-serif',
+                          fontWeight: 400,
+                          color: "#fff",
+                          width: { xs: "80%" },
+                          textAlign: "center",
+                          margin: "auto",
+                        }}
+                      >
+                        Corporate Governance, Risk and Compliance
+                      </Typography>
                     </Box>
-                    <Typography
-                      sx={{
-                        fontSize: "16px",
-                        fontFamily: '"Source Sans Pro", sans-serif',
-                        fontWeight: 400,
-                        color: "#fff",
-                        width: { xs: "80%" },
-                        textAlign: "center",
-                        margin: "auto",
-                      }}
-                    >
-                      Corporate Governance, Risk and Compliance
-                    </Typography>
                   </Box>
                 </Box>
               </Grid>
@@ -252,27 +276,39 @@ const PracticeAreas = () => {
                     borderRadius: "10px",
                   }}
                 >
-                  <Box>
-                    <Box display={"flex"} justifyContent={"center"}>
-                      <img
-                        src={practIcon4}
-                        alt={"icon"}
-                        style={{ display: "flex", justifyContent: "center" }}
-                      />
+                  <Box
+                    sx={{
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      height: "250px",
+                      backgroundColor: "rgba(19, 26, 52, 0.5)",
+                      margin: "auto",
+                    }}
+                  >
+                    <Box>
+                      <Box display={"flex"} justifyContent={"center"}>
+                        <img
+                          src={practIcon4}
+                          alt={"icon"}
+                          style={{ display: "flex", justifyContent: "center" }}
+                        />
+                      </Box>
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontFamily: '"Source Sans Pro", sans-serif',
+                          fontWeight: 400,
+                          color: "#fff",
+                          width: { xs: "80%" },
+                          textAlign: "center",
+                          margin: "auto",
+                        }}
+                      >
+                        Real Estate - Property Law
+                      </Typography>
                     </Box>
-                    <Typography
-                      sx={{
-                        fontSize: "16px",
-                        fontFamily: '"Source Sans Pro", sans-serif',
-                        fontWeight: 400,
-                        color: "#fff",
-                        width: { xs: "80%" },
-                        textAlign: "center",
-                        margin: "auto",
-                      }}
-                    >
-                      Real Estate - Property Law
-                    </Typography>
                   </Box>
                 </Box>
               </Grid>

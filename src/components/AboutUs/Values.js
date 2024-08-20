@@ -37,7 +37,7 @@ const Values = () => {
             textAlign: "center",
           }}
         >
-          These are the values that guide our company
+          These are the values that guide our Firm
         </Typography>
       </Box>
       <Grid container sx={{ width: "80%", margin: "auto" }}>

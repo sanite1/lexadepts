@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import MissionImg from "../../assets/images/missionImg2.png";
+import MissionImg from "../../assets/images/mission00.jpg";
 
 const Mission = () => {
   return (

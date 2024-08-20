@@ -1,8 +1,8 @@
-import pract1 from "../assets/images/bigPract1.png";
+import pract1 from "../assets/images/corp-com.jpg";
 import pract2 from "../assets/images/bigPract2.png";
-import pract3 from "../assets/images/bigPract3.png";
+import pract3 from "../assets/images/risk.jpg";
 import pract4 from "../assets/images/bigPract40.png";
-import pract5 from "../assets/images/bigPract50.png";
+import pract5 from "../assets/images/intellect.jpg";
 
 const PracticeAreaData = [
   {

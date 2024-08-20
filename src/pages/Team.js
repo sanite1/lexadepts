@@ -5,7 +5,7 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import TeamCards from "../components/Team/TeamCards";
 import Footer from "../components/Footer";
-import MissionImg from "../assets/images/missionImg2.png";
+import MissionImg from "../assets/images/mission00.jpg";
 import { useEffect } from "react";
 import { useTheme } from "@mui/material/styles";
 
@@ -39,41 +39,53 @@ const Team = () => {
           textAlign: "center",
         }}
       >
-        <Box>
-          <Typography
-            variant="body2"
-            color="#E0A422"
-            sx={{
-              fontSize: "16px",
-              fontFamily: '"Source Sans Pro", sans-serif',
-            }}
-          >
-            Lex Adepts
-          </Typography>
-          <Typography
-            variant="body2"
-            color="#fff"
-            sx={{
-              fontSize: {
-                xs: theme.typography.h4.fontSize,
-                md: theme.typography.h3.fontSize,
-              },
-              fontFamily: '"Source Sans Pro", sans-serif',
-              marginTop: "10px",
-            }}
-          >
-            The Team
-          </Typography>
-          <Breadcrumbs
-            separator={<NavigateNextIcon fontSize="small" />}
-            aria-label="breadcrumb"
-            display="flex"
-            justifyContent="center"
-            mt="10px"
-            color="#fff"
-          >
-            {breadcrumbs}
-          </Breadcrumbs>
+        <Box
+          sx={{
+            width: "100%",
+            height: "65vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            backgroundColor: "rgba(19, 26, 52, 0.5)",
+          }}
+        >
+          <Box>
+            <Typography
+              variant="body2"
+              color="#E0A422"
+              sx={{
+                fontSize: "16px",
+                fontFamily: '"Source Sans Pro", sans-serif',
+              }}
+            >
+              Lex Adepts
+            </Typography>
+            <Typography
+              variant="body2"
+              color="#fff"
+              sx={{
+                fontSize: {
+                  xs: theme.typography.h4.fontSize,
+                  md: theme.typography.h3.fontSize,
+                },
+                fontFamily: '"Source Sans Pro", sans-serif',
+                marginTop: "10px",
+              }}
+            >
+              The Team
+            </Typography>
+            <Breadcrumbs
+              separator={<NavigateNextIcon fontSize="small" />}
+              aria-label="breadcrumb"
+              display="flex"
+              justifyContent="center"
+              mt="10px"
+              color="#fff"
+            >
+              {breadcrumbs}
+            </Breadcrumbs>
+          </Box>
         </Box>
       </Box>
       <Box
@@ -95,19 +107,6 @@ const Team = () => {
           }}
         >
           MEET THE TEAM
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: "32px",
-            fontFamily: '"Source Sans Pro", sans-serif',
-            fontWeight: 700,
-            width: { xs: "90%", md: "60%" },
-            margin: "auto",
-            marginBottom: "40px",
-            textAlign: "center",
-          }}
-        >
-          These are the wonderful individuals that make up our company
         </Typography>
         <TeamCards />
       </Box>
@@ -176,7 +175,7 @@ const Team = () => {
                       marginBottom: "40px",
                     }}
                   >
-                    We provide the very best at our company
+                    We provide the very best at our Firm
                   </Typography>
                   <Typography
                     sx={{

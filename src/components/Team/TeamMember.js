@@ -53,41 +53,53 @@ const TeamMember = () => {
           textAlign: "center",
         }}
       >
-        <Box>
-          <Typography
-            variant="body2"
-            color="#E0A422"
-            sx={{
-              fontSize: "16px",
-              fontFamily: '"Source Sans Pro", sans-serif',
-            }}
-          >
-            Lex Adepts
-          </Typography>
-          <Typography
-            variant="body2"
-            color="#fff"
-            sx={{
-              fontSize: {
-                xs: theme.typography.h4.fontSize,
-                md: theme.typography.h3.fontSize,
-              },
-              fontFamily: '"Source Sans Pro", sans-serif',
-              marginTop: "10px",
-            }}
-          >
-            Staff Details
-          </Typography>
-          <Breadcrumbs
-            separator={<NavigateNextIcon fontSize="small" />}
-            aria-label="breadcrumb"
-            display="flex"
-            justifyContent="center"
-            mt="10px"
-            color="#fff"
-          >
-            {breadcrumbs}
-          </Breadcrumbs>
+        <Box
+          sx={{
+            width: "100%",
+            height: "65vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            backgroundColor: "rgba(19, 26, 52, 0.5)",
+          }}
+        >
+          <Box>
+            <Typography
+              variant="body2"
+              color="#E0A422"
+              sx={{
+                fontSize: "16px",
+                fontFamily: '"Source Sans Pro", sans-serif',
+              }}
+            >
+              Lex Adepts
+            </Typography>
+            <Typography
+              variant="body2"
+              color="#fff"
+              sx={{
+                fontSize: {
+                  xs: theme.typography.h4.fontSize,
+                  md: theme.typography.h3.fontSize,
+                },
+                fontFamily: '"Source Sans Pro", sans-serif',
+                marginTop: "10px",
+              }}
+            >
+              Staff Details
+            </Typography>
+            <Breadcrumbs
+              separator={<NavigateNextIcon fontSize="small" />}
+              aria-label="breadcrumb"
+              display="flex"
+              justifyContent="center"
+              mt="10px"
+              color="#fff"
+            >
+              {breadcrumbs}
+            </Breadcrumbs>
+          </Box>
         </Box>
       </Box>
       <Box
@@ -111,6 +123,16 @@ const TeamMember = () => {
               }}
             >
               {member.name}
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "16px",
+                fontFamily: '"Source Sans Pro", sans-serif',
+                fontWeight: 600,
+                color: "#E0A422",
+              }}
+            >
+              {member.role}
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
