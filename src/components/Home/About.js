@@ -1,150 +1,136 @@
 import { Box, Grid, Typography } from "@mui/material";
+import { useInView } from "react-intersection-observer";
+import { keyframes } from "@emotion/react";
 import AboutImg from "../../assets/images/about0.jpg";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
+const fadeIn = keyframes`
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+`;
+
+const AnimatedBox = ({ children, delay = "0s" }) => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  return (
+    <Box
+      ref={ref}
+      sx={{
+        opacity: 0,
+        animation: inView
+          ? `${fadeIn} 0.7s ease-out ${delay} forwards`
+          : "none",
+      }}
+    >
+      {children}
+    </Box>
+  );
+};
+
+const highlights = [
+  "Innovative Legal Solutions",
+  "Personalized Client Service",
+  "Commitment to Justice and Community",
+];
+
 const About = () => {
   return (
-    <Box>
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
-          <Box
+    <Grid container spacing={6} alignItems="center">
+      {/* Content */}
+      <Grid item xs={12} md={6}>
+        <AnimatedBox>
+          <Typography
             sx={{
-              display: "flex",
-              alignItems: "center",
-              height: "100%",
-              flexWrap: { xs: "wrap" },
+              fontSize: "13px",
+              fontFamily: '"Source Sans Pro", sans-serif',
+              fontWeight: 600,
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              color: "#E0A422",
+              marginBottom: "12px",
+              display: "inline-block",
+              borderBottom: "2px solid #E0A422",
+              paddingBottom: "4px",
             }}
           >
-            <Box>
-              <Typography
+            About Us
+          </Typography>
+
+          <Typography
+            sx={{
+              fontSize: { xs: "26px", md: "32px" },
+              fontFamily: '"Source Sans Pro", sans-serif',
+              fontWeight: 700,
+              lineHeight: 1.3,
+              marginBottom: "20px",
+              color: "#1a1a2e",
+              maxWidth: "450px",
+            }}
+          >
+            This is what makes us who we are
+          </Typography>
+
+          <Typography
+            sx={{
+              fontSize: "15px",
+              fontFamily: '"Source Sans Pro", sans-serif',
+              fontWeight: 400,
+              lineHeight: 1.8,
+              color: "#555",
+              marginBottom: "24px",
+            }}
+          >
+            At Lex Adepts, we believe that everyone deserves access to
+            exceptional legal representation. Our team of dedicated and
+            compassionate lawyers committed to providing innovative solutions,
+            personalised service, and tireless advocacy to individuals and
+            businesses in need. With a drive for excellence and passion for
+            justice, we strive to make a positive impact in our community and
+            beyond.
+          </Typography>
+
+          {/* Highlights */}
+          <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            {highlights.map((item, index) => (
+              <Box
+                key={index}
                 sx={{
                   display: "flex",
-                  justifyContent: "end",
-                  alignItems: "end",
-                  fontSize: "16px",
-                  fontFamily: '"Source Sans Pro", sans-serif',
-                  fontWeight: 400,
-                  borderBottom: "5px solid #E0A422",
-                  width: "fit-content",
-                  transform: { xs: "" },
+                  alignItems: "center",
+                  gap: "12px",
                 }}
               >
-                ABOUT US
-              </Typography>
-              <Box sx={{}}>
-                <Typography
-                  sx={{
-                    fontSize: "32px",
-                    fontFamily: '"Source Sans Pro", sans-serif',
-                    fontWeight: 700,
-                    marginBottom: "20px",
-                    width: { xs: "100%", md: "70%" },
-                  }}
-                >
-                  This is what makes us who we are
-                </Typography>
+                <CheckCircleIcon sx={{ color: "#E0A422", fontSize: "20px" }} />
                 <Typography
                   sx={{
                     fontSize: "14px",
                     fontFamily: '"Source Sans Pro", sans-serif',
-                    fontWeight: 400,
-                    marginBottom: "20px",
+                    fontWeight: 500,
+                    color: "#333",
                   }}
                 >
-                  At Lex Adepts, we believe that everyone deserves access to
-                  exceptional legal representation. Our team of dedicated and
-                  compassionate lawyers committed to providing innovative
-                  solutions, personalised service, and tireless advocacy to
-                  individuals and businesses in need. With a drive for
-                  excellence and passion for justice, we strive to make a
-                  positive impact in our community and beyond.
+                  {item}
                 </Typography>
-                <Box>
-                  <Box
-                    sx={{
-                      width: "100%",
-                      display: "flex",
-                      alignItems: "center",
-                      marginBottom: "6px",
-                      zIndex: 0,
-                    }}
-                  >
-                    <CheckCircleIcon
-                      fontSize="small"
-                      sx={{ color: "#E0A422" }}
-                    />
-                    <Typography
-                      sx={{
-                        fontSize: "14px",
-                        marginLeft: "15px",
-                      }}
-                    >
-                      Innovative Legal Solutions
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      width: "100%",
-                      display: "flex",
-                      alignItems: "center",
-                      marginBottom: "6px",
-                      zIndex: 0,
-                    }}
-                  >
-                    <CheckCircleIcon
-                      fontSize="small"
-                      sx={{ color: "#E0A422" }}
-                    />
-                    <Typography
-                      sx={{
-                        fontSize: "14px",
-                        marginLeft: "15px",
-                      }}
-                    >
-                      Personalized Client Service
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      width: "100%",
-                      display: "flex",
-                      alignItems: "center",
-                      marginBottom: "6px",
-                      zIndex: 0,
-                    }}
-                  >
-                    <CheckCircleIcon
-                      fontSize="small"
-                      sx={{ color: "#E0A422" }}
-                    />
-                    <Typography
-                      sx={{
-                        fontSize: "14px",
-                        marginLeft: "15px",
-                      }}
-                    >
-                      Commitment to Justice and Community
-                    </Typography>
-                  </Box>
-                </Box>
               </Box>
-            </Box>
+            ))}
           </Box>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              flexWrap: "wrap",
-              height: "100%",
-            }}
-          >
-            <img src={AboutImg} alt={"About"} style={{ width: "100%" }} />
-          </Box>
-        </Grid>
+        </AnimatedBox>
       </Grid>
-    </Box>
+
+      {/* Image */}
+      <Grid item xs={12} md={6}>
+        <AnimatedBox delay="0.15s">
+          <img
+            src={AboutImg}
+            alt="About Lex Adepts"
+            style={{
+              width: "100%",
+              borderRadius: "16px",
+              display: "block",
+            }}
+          />
+        </AnimatedBox>
+      </Grid>
+    </Grid>
   );
 };
 

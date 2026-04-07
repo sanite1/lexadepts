@@ -1,162 +1,262 @@
-import { Box, Link, Divider, Typography } from "@mui/material";
-import Navbar from "../components/Navbar";
-import AboutUsIntro from "../assets/images/homeIntro5.jpg";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
+import { Box, Typography } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
+import { keyframes } from "@emotion/react";
+import { useEffect } from "react";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import TeamCards from "../components/Team/TeamCards";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Experience from "../components/AboutUs/Experience";
 import Values from "../components/AboutUs/Values";
 import Mission from "../components/AboutUs/Mission";
-import { useEffect } from "react";
-import { useTheme } from "@mui/material/styles";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import TeamCards from "../components/Team/TeamCards";
+import AboutUsIntro from "../assets/images/homeIntro5.jpg";
+
+const fadeIn = keyframes`
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+`;
+
+const heroFade = keyframes`
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+`;
+
+const AnimatedSection = ({ children }) => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 });
+  return (
+    <Box
+      ref={ref}
+      sx={{
+        opacity: 0,
+        animation: inView ? `${fadeIn} 0.7s ease-out forwards` : "none",
+      }}
+    >
+      {children}
+    </Box>
+  );
+};
 
 const AboutUs = () => {
-  const breadcrumbs = [
-    <Link underline="hover" key="1" color="inherit" href="/">
-      Home
-    </Link>,
-    <Typography key="2" color="#E0A422">
-      About Us
-    </Typography>,
-  ];
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-  const theme = useTheme();
 
   return (
     <Box>
       <Navbar />
 
+      {/* ── Hero Banner ── */}
       <Box
         sx={{
-          backgroundImage: `url(${AboutUsIntro})`,
-          backgroundSize: "cover", // Cover the entire box
-          backgroundPosition: "center", // Center the image
-          backgroundRepeat: "no-repeat", // Prevent tiling
+          position: "relative",
           width: "100%",
-          height: "65vh",
+          height: { xs: "55vh", md: "65vh" },
+          minHeight: "380px",
+          backgroundImage: `url(${AboutUsIntro})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
         }}
       >
+        {/* Gradient overlay */}
         <Box
           sx={{
-            width: "100%",
-            height: "65vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            backgroundColor: "rgba(19, 26, 52, 0.5)",
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to bottom, rgba(19,26,52,0.65) 0%, rgba(19,26,52,0.5) 50%, rgba(19,26,52,0.75) 100%)",
+          }}
+        />
+
+        <Box
+          sx={{
+            position: "relative",
+            zIndex: 1,
+            animation: `${heroFade} 0.8s ease-out`,
           }}
         >
-          <Box>
-            <Typography
-              variant="body2"
-              color="#E0A422"
-              sx={{
-                fontSize: "16px",
-                fontFamily: '"Source Sans Pro", sans-serif',
+          <Typography
+            sx={{
+              fontSize: "13px",
+              fontFamily: '"Source Sans Pro", sans-serif',
+              fontWeight: 600,
+              letterSpacing: "3px",
+              textTransform: "uppercase",
+              color: "#E0A422",
+              marginBottom: "8px",
+            }}
+          >
+            Lex Adepts
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: { xs: "32px", sm: "40px", md: "48px" },
+              fontFamily: '"Source Sans Pro", sans-serif',
+              fontWeight: 700,
+              color: "#fff",
+              marginBottom: "16px",
+            }}
+          >
+            About Us
+          </Typography>
+
+          {/* Breadcrumbs */}
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "6px",
+              fontSize: "14px",
+              fontFamily: '"Source Sans Pro", sans-serif',
+            }}
+          >
+            <RouterLink
+              to="/"
+              style={{
+                color: "rgba(255,255,255,0.7)",
+                textDecoration: "none",
+                transition: "color 0.3s",
               }}
+              onMouseEnter={(e) => (e.target.style.color = "#E0A422")}
+              onMouseLeave={(e) =>
+                (e.target.style.color = "rgba(255,255,255,0.7)")
+              }
             >
-              Lex Adepts
-            </Typography>
+              Home
+            </RouterLink>
+            <NavigateNextIcon
+              sx={{ fontSize: "18px", color: "rgba(255,255,255,0.4)" }}
+            />
             <Typography
-              variant="body2"
-              color="#fff"
+              component="span"
               sx={{
-                fontSize: {
-                  xs: theme.typography.h4.fontSize,
-                  md: theme.typography.h3.fontSize,
-                },
+                color: "#E0A422",
+                fontSize: "14px",
                 fontFamily: '"Source Sans Pro", sans-serif',
-                marginTop: "10px",
               }}
             >
               About Us
             </Typography>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-              display="flex"
-              justifyContent="center"
-              mt="10px"
-              color="#fff"
-            >
-              {breadcrumbs}
-            </Breadcrumbs>
           </Box>
         </Box>
       </Box>
-      <Box
-        sx={{
-          width: "80%",
-          margin: "50px auto",
-        }}
-      >
-        {/* Experience */}
-        <Experience />
-      </Box>
 
-      {/* Values  */}
-      <Values />
-
-      {/* Mission  */}
-      <Mission />
-
-      {/* Team  */}
-
-      <Box
-        sx={{
-          width: { xs: "100%", md: "80%" },
-          margin: "50px auto",
-        }}
-      >
-        <Typography
+      {/* ── Experience / Welcome Section ── */}
+      <AnimatedSection>
+        <Box
           sx={{
-            fontSize: "16px",
-            fontFamily: '"Source Sans Pro", sans-serif',
-            fontWeight: 400,
-            borderBottom: "5px solid #E0A422",
-            width: "fit-content",
+            maxWidth: "1200px",
             margin: "auto",
-            marginBottom: "20px",
-            textAlign: "center",
+            padding: { xs: "60px 5%", md: "100px 40px" },
           }}
         >
-          MEET THE TEAM
-        </Typography>
-        <TeamCards />
+          <Experience />
+        </Box>
+      </AnimatedSection>
+
+      {/* ── Values / Why Choose Us ── */}
+      <AnimatedSection>
+        <Box sx={{ background: "#FAFAFA" }}>
+          <Values />
+        </Box>
+      </AnimatedSection>
+
+      {/* ── Mission ── */}
+      <AnimatedSection>
+        <Mission />
+      </AnimatedSection>
+
+      {/* ── Team Preview ── */}
+      <AnimatedSection>
         <Box
-          sx={{ display: "flex", justifyContent: "center", margin: "50px 0" }}
+          sx={{
+            maxWidth: "1200px",
+            margin: "auto",
+            padding: { xs: "60px 5%", md: "100px 40px" },
+          }}
         >
-          <Link
-            href="/team"
-            color="inherit"
-            underline="none"
+          {/* Section header */}
+          <Box sx={{ textAlign: "center", marginBottom: "40px" }}>
+            <Typography
+              sx={{
+                fontSize: "13px",
+                fontFamily: '"Source Sans Pro", sans-serif',
+                fontWeight: 600,
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                color: "#E0A422",
+                marginBottom: "12px",
+                display: "inline-block",
+                borderBottom: "2px solid #E0A422",
+                paddingBottom: "4px",
+              }}
+            >
+              Meet The Team
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: { xs: "26px", md: "32px" },
+                fontFamily: '"Source Sans Pro", sans-serif',
+                fontWeight: 700,
+                lineHeight: 1.3,
+                color: "#1a1a2e",
+                maxWidth: "500px",
+                margin: "0 auto",
+              }}
+            >
+              The people behind our success
+            </Typography>
+          </Box>
+
+          {/* Cards */}
+          <TeamCards />
+
+          {/* CTA */}
+          <Box
             sx={{
               display: "flex",
-              alignItems: "center",
-              background: "#E0A422",
-              outline: "none",
-              borderRadius: "10px",
-              padding: "10px 24px",
-              letterSpacing: "1px",
-              fontSize: "14px",
-              fontFamily: '"Source Sans Pro", sans-serif',
-              fontWeight: 300,
+              justifyContent: "center",
+              marginTop: "48px",
             }}
           >
-            Learn More <ArrowForwardIosIcon fontSize="smal" marginLeft="10px" />
-          </Link>
+            <RouterLink to="/team" style={{ textDecoration: "none" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  background: "#E0A422",
+                  color: "#131A34",
+                  borderRadius: "8px",
+                  padding: "11px 28px",
+                  fontSize: "14px",
+                  fontWeight: 600,
+                  fontFamily: '"Source Sans Pro", sans-serif',
+                  letterSpacing: "0.5px",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    background: "#c48d1a",
+                    transform: "translateY(-1px)",
+                    boxShadow: "0 4px 15px rgba(224,164,34,0.3)",
+                  },
+                }}
+              >
+                View Full Team
+                <ArrowForwardIosIcon sx={{ fontSize: "13px" }} />
+              </Box>
+            </RouterLink>
+          </Box>
         </Box>
-        <Divider sx={{ width: "80%", margin: "auto" }} />
-      </Box>
+      </AnimatedSection>
+
+      {/* ── Footer ── */}
       <Footer />
     </Box>
   );

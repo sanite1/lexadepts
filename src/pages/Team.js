@@ -1,38 +1,62 @@
-import { Box, Grid, Link, Typography } from "@mui/material";
-import Navbar from "../components/Navbar";
-import TeamIntro from "../assets/images/TeamIntro2.png";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import TeamCards from "../components/Team/TeamCards";
-import Footer from "../components/Footer";
-import MissionImg from "../assets/images/mission00.jpg";
+import { Box, Grid, Typography } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
+import { keyframes } from "@emotion/react";
 import { useEffect } from "react";
-import { useTheme } from "@mui/material/styles";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import TeamCards from "../components/Team/TeamCards";
+import MissionImg from "../assets/images/mission00.jpg";
+import TeamIntro from "../assets/images/TeamIntro2.png";
+
+const fadeIn = keyframes`
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+`;
+
+const heroFade = keyframes`
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+`;
+
+const AnimatedSection = ({ children, delay = "0s" }) => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 });
+  return (
+    <Box
+      ref={ref}
+      sx={{
+        opacity: 0,
+        animation: inView
+          ? `${fadeIn} 0.7s ease-out ${delay} forwards`
+          : "none",
+      }}
+    >
+      {children}
+    </Box>
+  );
+};
 
 const Team = () => {
-  const breadcrumbs = [
-    <Link underline="hover" key="1" color="inherit" href="/">
-      Home
-    </Link>,
-    <Typography key="2" color="#E0A422">
-      The Team
-    </Typography>,
-  ];
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-  const theme = useTheme();
+
   return (
     <Box>
       <Navbar />
+
+      {/* ── Hero Banner ── */}
       <Box
         sx={{
-          backgroundImage: `url(${TeamIntro})`,
-          backgroundSize: "cover", // Cover the entire box
-          backgroundPosition: "center", // Center the image
-          backgroundRepeat: "no-repeat", // Prevent tiling
+          position: "relative",
           width: "100%",
-          height: "65vh",
+          height: { xs: "55vh", md: "65vh" },
+          minHeight: "380px",
+          backgroundImage: `url(${TeamIntro})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -41,183 +65,227 @@ const Team = () => {
       >
         <Box
           sx={{
-            width: "100%",
-            height: "65vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            backgroundColor: "rgba(19, 26, 52, 0.5)",
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to bottom, rgba(19,26,52,0.65) 0%, rgba(19,26,52,0.5) 50%, rgba(19,26,52,0.75) 100%)",
+          }}
+        />
+        <Box
+          sx={{
+            position: "relative",
+            zIndex: 1,
+            animation: `${heroFade} 0.8s ease-out`,
           }}
         >
-          <Box>
-            <Typography
-              variant="body2"
-              color="#E0A422"
-              sx={{
-                fontSize: "16px",
-                fontFamily: '"Source Sans Pro", sans-serif',
+          <Typography
+            sx={{
+              fontSize: "13px",
+              fontFamily: '"Source Sans Pro", sans-serif',
+              fontWeight: 600,
+              letterSpacing: "3px",
+              textTransform: "uppercase",
+              color: "#E0A422",
+              marginBottom: "8px",
+            }}
+          >
+            Lex Adepts
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: { xs: "32px", sm: "40px", md: "48px" },
+              fontFamily: '"Source Sans Pro", sans-serif',
+              fontWeight: 700,
+              color: "#fff",
+              marginBottom: "16px",
+            }}
+          >
+            The Team
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "6px",
+              fontSize: "14px",
+              fontFamily: '"Source Sans Pro", sans-serif',
+            }}
+          >
+            <RouterLink
+              to="/"
+              style={{
+                color: "rgba(255,255,255,0.7)",
+                textDecoration: "none",
+                transition: "color 0.3s",
               }}
+              onMouseEnter={(e) => (e.target.style.color = "#E0A422")}
+              onMouseLeave={(e) =>
+                (e.target.style.color = "rgba(255,255,255,0.7)")
+              }
             >
-              Lex Adepts
-            </Typography>
+              Home
+            </RouterLink>
+            <NavigateNextIcon
+              sx={{ fontSize: "18px", color: "rgba(255,255,255,0.4)" }}
+            />
             <Typography
-              variant="body2"
-              color="#fff"
+              component="span"
               sx={{
-                fontSize: {
-                  xs: theme.typography.h4.fontSize,
-                  md: theme.typography.h3.fontSize,
-                },
+                color: "#E0A422",
+                fontSize: "14px",
                 fontFamily: '"Source Sans Pro", sans-serif',
-                marginTop: "10px",
               }}
             >
               The Team
             </Typography>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-              display="flex"
-              justifyContent="center"
-              mt="10px"
-              color="#fff"
-            >
-              {breadcrumbs}
-            </Breadcrumbs>
           </Box>
         </Box>
       </Box>
-      <Box
-        sx={{
-          // width: "80%",
-          margin: "50px auto",
-        }}
-      >
-        <Typography
+
+      {/* ── Team Cards Section ── */}
+      <AnimatedSection>
+        <Box
           sx={{
-            fontSize: "16px",
-            fontFamily: '"Source Sans Pro", sans-serif',
-            fontWeight: 400,
-            borderBottom: "5px solid #E0A422",
-            width: "fit-content",
+            maxWidth: "1200px",
             margin: "auto",
-            marginBottom: "20px",
-            textAlign: "center",
+            padding: { xs: "60px 5%", md: "100px 40px" },
           }}
         >
-          MEET THE TEAM
-        </Typography>
-        <TeamCards />
-      </Box>
+          <Box sx={{ textAlign: "center", marginBottom: "40px" }}>
+            <Typography
+              sx={{
+                fontSize: "13px",
+                fontFamily: '"Source Sans Pro", sans-serif',
+                fontWeight: 600,
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                color: "#E0A422",
+                marginBottom: "12px",
+                display: "inline-block",
+                borderBottom: "2px solid #E0A422",
+                paddingBottom: "4px",
+              }}
+            >
+              Meet The Team
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: { xs: "26px", md: "32px" },
+                fontFamily: '"Source Sans Pro", sans-serif',
+                fontWeight: 700,
+                lineHeight: 1.3,
+                color: "#1a1a2e",
+                maxWidth: "500px",
+                margin: "0 auto",
+              }}
+            >
+              Experienced professionals dedicated to your success
+            </Typography>
+          </Box>
 
-      <Box>
-        <Grid container>
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{
-              order: { xs: 2, md: 1 },
-            }}
-          >
+          <TeamCards />
+        </Box>
+      </AnimatedSection>
+
+      {/* ── Firm Statement ── */}
+      <AnimatedSection>
+        <Grid container sx={{ minHeight: { md: "500px" } }}>
+          <Grid item xs={12} md={6} sx={{ order: { xs: 2, md: 1 } }}>
             <Box
               sx={{
-                display: "flex",
-                alignItems: "center",
-                flexWrap: "wrap",
                 height: "100%",
+                minHeight: { xs: "300px", md: "500px" },
               }}
             >
               <img
                 src={MissionImg}
-                alt={"experience"}
-                style={{ width: "100%" }}
+                alt="Our Firm"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
               />
             </Box>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{
-              order: { xs: 1, md: 2 },
-            }}
-          >
+          <Grid item xs={12} md={6} sx={{ order: { xs: 1, md: 2 } }}>
             <Box
               sx={{
                 display: "flex",
                 alignItems: "center",
-                flexWrap: "wrap",
                 height: "100%",
+                minHeight: { xs: "auto", md: "500px" },
                 background: "#131A34",
+                padding: { xs: "48px 24px", sm: "56px 40px", md: "60px 60px" },
+                boxSizing: "border-box",
               }}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  height: "100%",
-                  paddingLeft: "50px",
-                  paddingTop: "30px",
-                  boxSizing: "border-box",
-                }}
-              >
-                <Box sx={{}}>
-                  <Typography
+              <Box>
+                <Typography
+                  sx={{
+                    fontSize: { xs: "26px", md: "32px" },
+                    fontFamily: '"Source Sans Pro", sans-serif',
+                    fontWeight: 700,
+                    lineHeight: 1.3,
+                    color: "#fff",
+                    marginBottom: "24px",
+                    maxWidth: "400px",
+                  }}
+                >
+                  We provide the very best at our Firm
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "15px",
+                    fontFamily: '"Source Sans Pro", sans-serif',
+                    fontWeight: 400,
+                    lineHeight: 1.8,
+                    color: "rgba(255,255,255,0.65)",
+                    marginBottom: "28px",
+                    maxWidth: "440px",
+                  }}
+                >
+                  At our firm, we are dedicated to delivering exceptional legal
+                  services across all practice areas. Our team of experienced
+                  professionals serves as trusted advisors, guiding clients
+                  through complex legal and business challenges. We are
+                  committed to helping you navigate every aspect of your legal
+                  needs with the highest level of expertise, ensuring that you
+                  achieve your objectives and receive the best possible support.
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                  }}
+                >
+                  <Box
                     sx={{
-                      fontSize: "32px",
-                      fontFamily: '"Source Sans Pro", sans-serif',
-                      fontWeight: 700,
-                      width: { xs: "90%", md: "60%" },
-                      color: "white",
-
-                      marginBottom: "40px",
+                      width: "32px",
+                      height: "2px",
+                      background: "#E0A422",
                     }}
-                  >
-                    We provide the very best at our Firm
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: "16px",
-                      fontFamily: '"Source Sans Pro", sans-serif',
-                      fontWeight: 400,
-                      width: { xs: "90%", md: "80%" },
-                      color: "white",
-
-                      marginBottom: "40px",
-                    }}
-                  >
-                    At our firm, we are dedicated to delivering exceptional
-                    legal services across all practice areas. Our team of
-                    experienced professionals serves as trusted advisors,
-                    guiding clients through complex legal and business
-                    challenges. We are committed to helping you navigate every
-                    aspect of your legal needs with the highest level of
-                    expertise, ensuring that you achieve your objectives and
-                    receive the best possible support.
-                  </Typography>
+                  />
                   <Typography
                     sx={{
                       fontSize: "14px",
                       fontFamily: '"Source Sans Pro", sans-serif',
-                      fontWeight: 300,
-                      width: { xs: "90%", md: "60%" },
-
-                      marginBottom: "40px",
-
-                      color: "#E0A422",
+                      fontWeight: 400,
                       fontStyle: "italic",
+                      color: "#E0A422",
                     }}
                   >
-                    -Lex Adepts Management
+                    Lex Adepts Management
                   </Typography>
                 </Box>
               </Box>
             </Box>
           </Grid>
         </Grid>
-      </Box>
+      </AnimatedSection>
 
       <Footer />
     </Box>

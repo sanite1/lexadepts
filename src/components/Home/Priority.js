@@ -1,40 +1,26 @@
 import React from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { Box, Typography, Link } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import { keyframes } from "@emotion/react";
 import priority from "../../assets/images/priority2.png";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { useTheme } from "@mui/material/styles";
 
-const slideFromDown = keyframes`
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+const fadeIn = keyframes`
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 `;
 
-const AnimatedBox = ({ children, direction }) => {
+const AnimatedBox = ({ children, delay = "0s" }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
-  let animation;
-  switch (direction) {
-    case "down":
-      animation = slideFromDown;
-      break;
-    default:
-      animation = slideFromDown;
-  }
-
   return (
     <Box
       ref={ref}
       sx={{
-        animation: inView ? `${animation} 1s ease-out` : "none",
+        opacity: 0,
+        animation: inView
+          ? `${fadeIn} 0.8s ease-out ${delay} forwards`
+          : "none",
       }}
     >
       {children}
@@ -43,96 +29,102 @@ const AnimatedBox = ({ children, direction }) => {
 };
 
 function Priority() {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{
         position: "relative",
         width: "100%",
-        // height: "100vh",
-        padding: "100px 0",
-
-        margin: "auto",
+        padding: { xs: "80px 0", md: "120px 0" },
         backgroundImage: `url(${priority})`,
-        backgroundSize: "cover", // Cover the entire box
-        backgroundPosition: "center", // Center the image
-        backgroundRepeat: "no-repeat", // Prevent tiling
-        zIndex: 1, // Ensure this is lower than the navbar
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: { xs: "scroll", md: "fixed" },
       }}
     >
+      {/* Dark overlay */}
       <Box
         sx={{
+          position: "absolute",
+          inset: 0,
+          background: "rgba(19,26,52,0.65)",
+        }}
+      />
+
+      {/* Content */}
+      <Box
+        sx={{
+          position: "relative",
+          zIndex: 1,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          width: "100%",
-          height: "100%",
         }}
       >
-        <AnimatedBox direction="down">
-          <Typography
-            sx={{
-              fontSize: {
-                xs: theme.typography.h4.fontSize,
-                md: theme.typography.h3.fontSize,
-              },
-              width: { xs: "80%", md: "60%" },
-              margin: "auto",
-              fontFamily: '"Source Sans Pro", sans-serif',
-              fontWeight: 700,
-              marginBottom: "20px",
-              letterSpacing: "2px",
-              lineHeight: "1.5",
-              color: "#fff",
-            }}
-          >
-            We ensure we handle each case with top level priority
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: {
-                xs: theme.typography.body2.fontSize,
-                md: theme.typography.body1.fontSize,
-              },
-              width: { xs: "90%", md: "70%" },
-              margin: "auto",
-              marginBottom: "20px",
-              fontFamily: "sans-serif",
-              letterSpacing: "1px",
-              color: "#fff",
-            }}
-          >
-            At Lex Adepts, our team of experienced lawyers provides expert
-            guidance and representation across range of areas, and we pride
-            ourselves on our sector strengths which cover diverse areas of law
-            including
-          </Typography>
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Link
-              href="/contact-us"
-              color="inherit"
-              underline="none"
+        <Box sx={{ maxWidth: "700px", padding: "0 24px" }}>
+          <AnimatedBox>
+            <Typography
               sx={{
-                display: "flex",
-                alignItems: "center",
-                background: "#E0A422",
-                outline: "none",
-                borderRadius: "10px",
-                padding: "10px 24px",
-                letterSpacing: "1px",
-                fontSize: "14px",
+                fontSize: { xs: "26px", sm: "32px", md: "40px" },
                 fontFamily: '"Source Sans Pro", sans-serif',
-                fontWeight: 300,
+                fontWeight: 700,
+                lineHeight: 1.3,
+                color: "#fff",
+                marginBottom: "20px",
               }}
             >
-              Contact Us
-              <ArrowForwardIosIcon fontSize="smal" marginLeft="10px" />
-            </Link>
-          </Box>
-        </AnimatedBox>
+              We ensure we handle each case with top level priority
+            </Typography>
+          </AnimatedBox>
+
+          <AnimatedBox delay="0.15s">
+            <Typography
+              sx={{
+                fontSize: { xs: "14px", md: "16px" },
+                fontFamily: '"Source Sans Pro", sans-serif',
+                fontWeight: 300,
+                lineHeight: 1.7,
+                color: "rgba(255,255,255,0.7)",
+                maxWidth: "560px",
+                margin: "0 auto 32px",
+              }}
+            >
+              At Lex Adepts, our team of experienced lawyers provides expert
+              guidance and representation across range of areas, and we pride
+              ourselves on our sector strengths which cover diverse areas of law
+              including
+            </Typography>
+          </AnimatedBox>
+
+          <AnimatedBox delay="0.3s">
+            <RouterLink to="/contact-us" style={{ textDecoration: "none" }}>
+              <Box
+                sx={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  background: "#E0A422",
+                  color: "#131A34",
+                  borderRadius: "8px",
+                  padding: "12px 28px",
+                  fontSize: "14px",
+                  fontWeight: 600,
+                  fontFamily: '"Source Sans Pro", sans-serif',
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    background: "#c48d1a",
+                    transform: "translateY(-2px)",
+                    boxShadow: "0 4px 20px rgba(224,164,34,0.3)",
+                  },
+                }}
+              >
+                Contact Us
+                <ArrowForwardIosIcon sx={{ fontSize: "13px" }} />
+              </Box>
+            </RouterLink>
+          </AnimatedBox>
+        </Box>
       </Box>
     </Box>
   );

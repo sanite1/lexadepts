@@ -1,83 +1,29 @@
 import { Box } from "@mui/material";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { useInView } from "react-intersection-observer";
 import { keyframes } from "@emotion/react";
+import { useEffect } from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import HomeIntro from "../components/Home/HomeIntro";
 import Experience from "../components/AboutUs/Experience";
 import About from "../components/Home/About";
 import PracticeAreas from "../components/Home/PracticeAreas";
 import Values from "../components/AboutUs/Values";
 import Priority from "../components/Home/Priority";
-import { useEffect } from "react";
 
-const slideFromLeft = keyframes`
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+const fadeIn = keyframes`
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 `;
 
-const slideFromRight = keyframes`
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-`;
-
-const slideFromDown = keyframes`
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-`;
-
-const appear = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
-const AnimatedBox = ({ children, direction }) => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
-  let animation;
-  switch (direction) {
-    case "left":
-      animation = slideFromLeft;
-      break;
-    case "right":
-      animation = slideFromRight;
-      break;
-    case "down":
-      animation = slideFromDown;
-      break;
-    case "appear":
-      animation = appear;
-      break;
-    default:
-      animation = appear;
-  }
-
+const AnimatedSection = ({ children }) => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 });
   return (
     <Box
       ref={ref}
       sx={{
-        animation: inView ? `${animation} 1s ease-out` : "none",
+        opacity: 0,
+        animation: inView ? `${fadeIn} 0.7s ease-out forwards` : "none",
       }}
     >
       {children}
@@ -89,82 +35,54 @@ const Home = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
   return (
     <Box>
       <Navbar />
 
-      <Box
-        sx={{
-          width: "100%",
-          margin: "auto",
-          height: "100vh",
-          boxSizing: "border-box",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <HomeIntro />
-      </Box>
+      {/* Hero */}
+      <HomeIntro />
 
-      <AnimatedBox direction={"left"}>
+      {/* Welcome / Experience */}
+      <AnimatedSection>
         <Box
           sx={{
-            width: { xs: "80%", md: "80%" },
-            boxSizing: "border-box",
+            maxWidth: "1200px",
             margin: "auto",
-            marginTop: "50px",
+            padding: { xs: "60px 5%", md: "100px 40px" },
           }}
         >
           <Experience />
         </Box>
-      </AnimatedBox>
+      </AnimatedSection>
 
-      <AnimatedBox direction={"right"}>
+      {/* About */}
+      <AnimatedSection>
         <Box
           sx={{
-            width: "80%",
+            maxWidth: "1200px",
             margin: "auto",
-            marginTop: "50px",
+            padding: { xs: "0 5% 60px", md: "0 40px 100px" },
           }}
         >
           <About />
         </Box>
-      </AnimatedBox>
+      </AnimatedSection>
 
-      <AnimatedBox direction={"appear"}>
-        <Box
-          sx={{
-            marginTop: "50px",
-          }}
-        >
-          <PracticeAreas />
-        </Box>
-      </AnimatedBox>
+      {/* Practice Areas */}
+      <AnimatedSection>
+        <PracticeAreas />
+      </AnimatedSection>
 
-      <AnimatedBox direction={"down"}>
-        <Box
-          sx={{
-            // width: "80%",
-            margin: "auto",
-            marginTop: "50px",
-          }}
-        >
-          <Values />
-        </Box>
-      </AnimatedBox>
+      {/* Values / Why Choose Us */}
+      <AnimatedSection>
+        <Values />
+      </AnimatedSection>
 
-      <Box
-        sx={{
-          // width: "80%",
-          margin: "auto",
-          marginTop: "50px",
-        }}
-      >
-        <Priority />
-      </Box>
+      {/* CTA Banner */}
+      <Priority />
 
-      {/* Footer  */}
-
+      {/* Footer */}
       <Footer />
     </Box>
   );
